@@ -1,3 +1,4 @@
+
 import { Button, Text, View, StyleSheet } from "react-native";
 
 export default function Home({ navigation }) {
@@ -12,6 +13,15 @@ export default function Home({ navigation }) {
     );
 }
 
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
+  
 const styles = StyleSheet.create({
     container: {
         height: '100%',
