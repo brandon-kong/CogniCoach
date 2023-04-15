@@ -9,6 +9,10 @@ export default function Home({ navigation }) {
                 title="Go to Login"
                 onPress={() => navigation.navigate("login")}
             />
+            <Button
+            title="Go to Personal Assistant"
+            onPress={() => navigation.navigate("PersonalAssistant")}
+            />
         </View>
     );
 }
