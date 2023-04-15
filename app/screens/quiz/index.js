@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { Button, View, TextInput, TouchableOpacity, Text , StyleSheet} from 'react-native';
+// import DatePicker from 'react-native-datepicker'
 // import DatePicker from 'react-native-date-picker'
-import TimePickerScreen from './timepicker';
+// import TimePickerScreen from './timepicker';
+// import MyDatePicker from './timepicker';
 
 // function Date(){
 //   const [date, setDate] = useState(new Date())
@@ -59,27 +61,8 @@ export default function Quiz({navigation}){
                 <Text>Submit</Text>
             </TouchableOpacity>
 
-       
-            {/* <Button title="Open" onPress={() => setOpen(true)} />
-            <DatePicker
-                modal
-                open={open}
-                date={date}
-                onConfirm={(date) => {
-                setOpen(false)
-                setDate(date)
-                }}
-                onCancel={() => {
-                setOpen(false)
-                }}
-            /> */}
-            <View>
-                
-                <Button
-                    title="Pick a Time"
-                    onPress={() => navigation.navigate('TimePicker')}
-                />
-            </View>
+            {/* <MyDatePicker></MyDatePicker> */}
+
 
         </View>
         
