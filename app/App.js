@@ -1,6 +1,12 @@
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom"
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
+import Quiz from "./Screens/Quiz";
 export default function App() {
   return (
     <View style={styles.container}>
