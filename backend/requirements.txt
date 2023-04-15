@@ -1,0 +1,6 @@
+Django==1.11.29
+django-environ==0.4.5
+djangorestframework==3.9.4
+numpy==1.16.6
+psycopg2-binary==2.8.6
+pytz==2023.3
