@@ -1,41 +1,14 @@
 import React, { useState, Component } from 'react';
-import { Button, View, TextInput, TouchableOpacity, Text , StyleSheet} from 'react-native';
-// import DatePicker from 'react-native-datepicker'
-// import DatePicker from 'react-native-date-picker'
-// import TimePickerScreen from './timepicker';
-// import MyDatePicker from './timepicker';
+import { Button, View, TextInput, TouchableOpacity, Text , StyleSheet, } from 'react-native';
 
-// function Date(){
-//   const [date, setDate] = useState(new Date())
-//   const [open, setOpen] = useState(false)
-
-//   return (
-//     <>
-//       <Button title="Open" onPress={() => setOpen(true)} />
-//       <DatePicker
-//         modal
-//         open={open}
-//         date={date}
-//         onConfirm={(date) => {
-//           setOpen(false)
-//           setDate(date)
-//         }}
-//         onCancel={() => {
-//           setOpen(false)
-//         }}
-//       />
-//     </>
-//   )
-// }
-
-function Question({question, text}) {
+function Question({question, text, onQuestionChange}) {
 
     return (
       <View style = {styles.qaBox}>
         <Text>{question}</Text>
         <TextInput style={[styles.customText]}
             // style={{ height: 40, width: 200, borderColor: 'gray', borderWidth: 1 }}
-            onChangeText={text => setText(text)}
+            onChangeText={text => onQuestionChange(text)}
             value={text}
             placeholder="Type your answer here"
         />
@@ -51,9 +24,9 @@ export default function Quiz({navigation}){
     return (
         <View style={styles.container}>
             <Text>Quiz</Text>
-            <Question question="What is your typical wake-up time?"></Question>
+            <Question question="What is your typical wake-up time?" onQuestionChange={setText}></Question>
         
-            <Question question="When do you take your medication(s)?"></Question>
+            <Question question="When do you take your medication(s)?" onQuestionChange={setText}></Question>
 
             <Button title="playing around lol">
             </Button>
