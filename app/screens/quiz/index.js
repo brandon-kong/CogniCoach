@@ -1,6 +1,30 @@
 import React, { useState } from 'react';
 import { Button, View, TextInput, TouchableOpacity, Text , StyleSheet} from 'react-native';
+// import DatePicker from 'react-native-date-picker'
+import TimePickerScreen from './timepicker';
 
+// function Date(){
+//   const [date, setDate] = useState(new Date())
+//   const [open, setOpen] = useState(false)
+
+//   return (
+//     <>
+//       <Button title="Open" onPress={() => setOpen(true)} />
+//       <DatePicker
+//         modal
+//         open={open}
+//         date={date}
+//         onConfirm={(date) => {
+//           setOpen(false)
+//           setDate(date)
+//         }}
+//         onCancel={() => {
+//           setOpen(false)
+//         }}
+//       />
+//     </>
+//   )
+// }
 
 function Question({question, text}) {
 
@@ -17,8 +41,11 @@ function Question({question, text}) {
     );
   }
 
-export default function Quiz(){
+export default function Quiz({navigation}){
     const [text, setText] = useState('');
+    const [date, setDate] = useState(new Date())
+    const [open, setOpen] = useState(false)
+
     return (
         <View style={styles.container}>
             <Text>Quiz</Text>
@@ -31,7 +58,32 @@ export default function Quiz(){
             <TouchableOpacity>
                 <Text>Submit</Text>
             </TouchableOpacity>
-        </View>    
+
+       
+            {/* <Button title="Open" onPress={() => setOpen(true)} />
+            <DatePicker
+                modal
+                open={open}
+                date={date}
+                onConfirm={(date) => {
+                setOpen(false)
+                setDate(date)
+                }}
+                onCancel={() => {
+                setOpen(false)
+                }}
+            /> */}
+            <View>
+                
+                <Button
+                    title="Pick a Time"
+                    onPress={() => navigation.navigate('TimePicker')}
+                />
+            </View>
+
+        </View>
+        
+        
     );
 }
 

@@ -1,4 +1,4 @@
-import { Button, Text, View } from "react-native";
+import { Button, Text, View , StyleSheet} from "react-native";
 
 export default function Home() {
     return (
@@ -12,3 +12,13 @@ export default function Home() {
     );
 }
 
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
+  
