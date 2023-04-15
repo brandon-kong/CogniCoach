@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/home/index';
 import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
+import PersonalAssistant from './screens/personalassistant';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,15 +16,20 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
+          name="Calendar"
+          component={PersonalAssistant}
+          options={{ title: 'Calendar' }}
+      />
+      <Stack.Screen
           name="quiz"
           component={Quiz}
           options={{ title: 'quiz', headerShown: false }}
-        />
-        <Stack.Screen
+      />
+      <Stack.Screen
           name="login"
           component={Login}
           options={{ title: 'Login', headerShown: false }}
-        />
+      />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
