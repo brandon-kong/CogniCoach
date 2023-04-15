@@ -3,13 +3,22 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// Screens
+import Login from './screens/login/index';
+
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="login"
+          component={Login}
+          options={{ title: 'Login' }}
+        />
+      </Stack.Navigator>
       <StatusBar style="auto" />
-    </View>
     </NavigationContainer>
     
   );
