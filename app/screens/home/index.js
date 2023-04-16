@@ -1,16 +1,16 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
-import Button from '../../components/Button/index'
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import CustomButton from '../../components/Button/index'
 
-export default function Login () {
+export default function Home ( { navigation } ) {
     return (
         <View style={styles.container}>
             <Image style={styles.main_img} source={require('../../assets/landing-img.png')} />
             <View style={styles.bottom_container}>
                 <Text style={styles.home_title} >Are you a</Text>
-                <Button text='Caregiver' />
+                <CustomButton text='Caregiver' />
                 <Text style={styles.home_text}>or</Text>
-                <Button text='Patient' />
-                <Text style={styles.home_text}>Login instead</Text>
+                <CustomButton text='Patient' />
+                <Button color="#000" title="Login instead" onPress={() => {navigation.navigate('login')}}></Button>
             </View>
            
         </View> 
@@ -20,6 +20,7 @@ export default function Login () {
 
 const styles = StyleSheet.create({
     container: {
+        padding: 40,
         display: 'flex',
         gap: 50,
         height: '100%',
@@ -47,10 +48,12 @@ const styles = StyleSheet.create({
     bottom_container: {
         display: 'flex',
         gap: 20,
+        width: '100%',
     },
 
     home_text: {
         textAlign: 'center',
         fontSize: 20,
+        color: '#000000',
     }
 })

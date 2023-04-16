@@ -1,32 +1,34 @@
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 
-export default function Textbox () {
+export default function Textbox ( {onChange, text, placeholder} ) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
             <TextInput
                 style={styles.textbox}
-                placeholder="Username"
+                placeholder={placeholder || 'Enter your email'}
+                placeholderTextColor='#444'
             />
-            <TextInput
-                style={styles.textbox}
-                placeholder="Password"
-            />
-            <Button text='Login' />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        height: 50,
         display: 'flex',
-        gap: 20,
-        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: '100%',
+        borderWidth: 2,
+        borderColor: 'black',
+        borderRadius: 10,
+
         flexDirection: 'column',
     },
 
-    title: {
-        
+    textbox: {
+        fontSize: 20,
+        padding: 10,
+
     }
 })

@@ -17,7 +17,7 @@ export default function Personalassistant () {
         const items = {}
 
         setTimeout(() => {
-              for (let i = -15; i < 65; i++) 
+              for (let i = -15; i < 5; i++) 
               {
                 const time = day.timestamp + i * 24 * 60 * 60 * 1000;
                 const strTime = timeToString(time);
@@ -74,6 +74,7 @@ export default function Personalassistant () {
             agendaTodayColor: 'black',
             agendaKnobColor: 'black',
             selectedDayBackgroundColor: 'black',
+            dayTextColor: 'black',
             dotColor: 'gray'
         }}
         renderItem= {renderItem}
