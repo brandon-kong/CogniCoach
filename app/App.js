@@ -23,7 +23,7 @@ import Patient from './screens/dashboard/patient/index';
 import Game from './screens/game/index';
 import Family from './screens/family/index';
 
-import Personalassistant from './screens/Personalassistant';
+import Personalassistant from './screens/personalassistant';
 import Faceai from './screens/Faceai';
 import Dashboardcaregiver from './screens/Caregiverdashboard/Dashboardcaregiver';
 
@@ -34,7 +34,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      {/* <Stack.Screen
+   
+      <Stack.Screen
           name="home"
           component={Home}
           options={{ title: 'Home', headerShown: false }}
@@ -43,6 +44,7 @@ export default function App() {
           name="geo"
           component={Map}
           options={{ title: 'Geolocation' }}
+         />
       <Stack.Screen
           name="Caregiver Dashboard"
           component={ Dashboardcaregiver }
@@ -73,20 +75,19 @@ export default function App() {
           name="login"
           component={Login}
           options={{ title: 'Login', headerShown: false }}
-      /> */}
+      />
       <Stack.Screen
           name="quiz"
           component={Quiz}
           options={{ title: 'Quiz', headerShown: false }}
-      />
-      {/* <Stack.Screen
-      />
+        />
       
       <Stack.Screen
           name="caregiver"
           component={CaregiverTabs}
           options={{ title: 'Caregiver', headerShown: false }}
       />
+      
       <Stack.Screen
           name="patient"
           component={PatientTabs}
