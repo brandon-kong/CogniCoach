@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 
 
-export default function personalassistant () {
+export default function Personalassistant () {
     const timeToString = (time) => {
         const date = new Date(time);
         return date.toISOString().split('T')[0];
