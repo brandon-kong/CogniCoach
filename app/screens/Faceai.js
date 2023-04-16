@@ -85,13 +85,14 @@ export default function Faceai() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: 400,
+    backgroundColor: '#000',
   },
   camera: {
     flex: 1,
     width: '100%',
+    height: 200,
+    backgroundColor: 'white',
   },
   buttonContainer: {
     position: 'absolute',
