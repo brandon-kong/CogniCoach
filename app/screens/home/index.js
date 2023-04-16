@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
     main_img: {
         width: '100%',
-        height: '30%',
+        height: '35%',
         resizeMode: 'contain',
     },
 
