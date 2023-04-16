@@ -15,14 +15,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
-          name="Personalassistant"
-          component={Personalassistant}
-          options={{ title: 'Personal Assistant' }}
-        />
-      <Stack.Screen
           name="test2"
           component={Faceai}
           options={{ title: 'Face A.I.' }}
+        />
+      <Stack.Screen
+          name="Personalassistant"
+          component={Personalassistant}
+          options={{ title: 'Personal Assistant' }}
         />
         <Stack.Screen
           name="login"
