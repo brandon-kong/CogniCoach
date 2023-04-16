@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
 import Marker from "react-native-maps";
+
 export default function Map({ navigation }) {
   const location = {
     latitude: 42.05837,
@@ -12,9 +13,10 @@ export default function Map({ navigation }) {
   return (
     <View style={styles.container}>
       <MapView style={styles.map} initialRegion={location} />
-      <View style={styles.marker}>
-        <Text style={styles.color}>Grandpa</Text>
-      </View>
+      <Marker
+        coordinate={{ latitude: 42.05837, longitude: -87.6743 }}
+        image={require("./grandpa.png")} //uses relative file path. 
+      />
     </View>
   );
 }
@@ -32,12 +34,11 @@ const styles = StyleSheet.create({
   marker: {
     paddingVertical: 10,
     paddingHorizontal: 30,
-    backgroundColor: "#007bff",
     borderColor: "#eee",
     elevation: 10,
     marginBottom: 450,
-    width: 100,
-    height: 60,
+    width: 200,
+    height: 200,
     borderRadius: 20,
   },
   text: {
