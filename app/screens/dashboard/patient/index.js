@@ -4,7 +4,7 @@ export default function Caregiver ( { navigation } ) {
     return (
         <View style={styles.container}>
             <Text>Patient</Text>
-            <Button title="Go back" onPress={() => navigation.navigate('home')}>
+            <Button title="Go back" onPress={() => navigation.navigate('geo')}>
                 <Text>Go back</Text>
             </Button>
         </View>

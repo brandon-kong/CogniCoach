@@ -18,6 +18,7 @@ import Caregiver from './screens/dashboard/caregiver/index';
 import Patient from './screens/dashboard/patient/index';
 
 import Game from './screens/game/index';
+import Family from './screens/family/index';
 
 import Personalassistant from './screens/Personalassistant';
 import Faceai from './screens/Faceai'
@@ -35,7 +36,7 @@ export default function App() {
           options={{ title: 'Home', headerShown: false }}
         />
       <Stack.Screen
-          name="test3"
+          name="geo"
           component={Map}
           options={{ title: 'Geolocation' }}
         />
@@ -92,10 +93,17 @@ function PatientTabs () {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
+          color = focused ? '#f48' : '#000';
+          
           if (route.name === 'Game') {
             iconName = focused
               ? 'puzzle-check'
               : 'puzzle-check-outline';
+          }
+          else if (route.name === 'Family') {
+            iconName = focused
+              ? 'account-group'
+              : 'account-group-outline';
           }
           // You can return any component that you like here!
           return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
@@ -103,7 +111,7 @@ function PatientTabs () {
       })}
     >
       <Tab.Screen name="Game" component={Game} />
-      <Tab.Screen name="Caregiver" component={Caregiver} />
+      <Tab.Screen name="Family" component={Family} />
       <Tab.Screen name="Patient" component={Patient} />
     </Tab.Navigator>
   )
