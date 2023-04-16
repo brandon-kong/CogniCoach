@@ -15,6 +15,18 @@ export default function Login ( { navigation } ) {
         })
     }
 
+    const handleLoginTest = () => {
+        const isCaregiver = false;
+
+        if (isCaregiver) {
+            console.log('caregiver')
+            navigation.navigate('caregiver')
+        }
+        else {
+            navigation.navigate('patient')
+        }
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.input_container}>
@@ -25,7 +37,7 @@ export default function Login ( { navigation } ) {
                 <Text style={styles.input_label}>Password</Text>
                 <Textbox secureTextEntry={true}  placeholder="Enter your password" onChange={setPassword} />
             </View>
-            <CustomButton text='Login' />
+            <CustomButton text='Login' onPress={handleLoginTest} />
             <Button color='#000' title="Go back" onPress={() => navigation.navigate('home')} style={styles.go_back} />
         </View> 
 

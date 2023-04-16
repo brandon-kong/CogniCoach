@@ -2,6 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 // Screens
 import Home from './screens/home/index';
@@ -9,9 +13,16 @@ import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 import Map from './screens/geolocation/index';
 
+// Dashboard screen
+import Caregiver from './screens/dashboard/caregiver/index';
+import Patient from './screens/dashboard/patient/index';
+
+import Game from './screens/game/index';
+
 import Personalassistant from './screens/Personalassistant';
 import Faceai from './screens/Faceai'
 
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -19,8 +30,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
+          name="home"
+          component={Home}
+          options={{ title: 'Home', headerShown: false }}
+        />
+      <Stack.Screen
           name="test3"
-          component={Geolocation}
+          component={Map}
           options={{ title: 'Geolocation' }}
         />
       <Stack.Screen
@@ -33,11 +49,6 @@ export default function App() {
           component={Personalassistant}
           options={{ title: 'Personal Assistant' }}
         />
-        <Stack.Screen
-          name="home"
-          component={Home}
-          options={{ title: 'Home', headerShown: false }}
-      />
       <Stack.Screen
           name="login"
           component={Login}
@@ -46,13 +57,56 @@ export default function App() {
       <Stack.Screen
           name="quiz"
           component={Quiz}
-          options={{ title: 'quiz', headerShown: false }}
+          options={{ title: 'Quiz', headerShown: false }}
+      />
+      <Stack.Screen
+          name="caregiver"
+          component={CaregiverTabs}
+          options={{ title: 'Caregiver', headerShown: false }}
+      />
+      <Stack.Screen
+          name="patient"
+          component={PatientTabs}
+          options={{ title: 'Patient', headerShown: false }}
       />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
     
   );
+}
+
+function CaregiverTabs () {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Caregiver" component={Caregiver} />
+      <Tab.Screen name="Patient" component={Patient} />
+    </Tab.Navigator>
+  )
+}
+
+function PatientTabs () {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Game') {
+            iconName = focused
+              ? 'puzzle-check'
+              : 'puzzle-check-outline';
+          }
+          // You can return any component that you like here!
+          return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
+        }
+      })}
+    >
+      <Tab.Screen name="Game" component={Game} />
+      <Tab.Screen name="Caregiver" component={Caregiver} />
+      <Tab.Screen name="Patient" component={Patient} />
+    </Tab.Navigator>
+  )
 }
 
 const styles = StyleSheet.create({
