@@ -22,7 +22,8 @@ import Game from './screens/game/index';
 import Family from './screens/family/index';
 
 import Personalassistant from './screens/Personalassistant';
-import Faceai from './screens/Faceai'
+import Faceai from './screens/Faceai';
+import Dashboardcaregiver from './screens/Caregiverdashboard/Dashboardcaregiver';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -32,20 +33,26 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
-          name="home"
-          component={Home}
-          options={{ title: 'Home', headerShown: false }}
-        />
-      <Stack.Screen
-          name="geo"
-          component={Map}
-          options={{ title: 'Geolocation' }}
+          name="Caregiver Dashboard"
+          component={ Dashboardcaregiver }
+          options={{ title: 'Caregiver Dashboard:' }}
         />
       <Stack.Screen
           name="test2"
           component={Faceai}
           options={{ title: 'Face A.I.' }}
         />
+      <Stack.Screen
+          name="quiz"
+          component={Quiz}
+          options={{ title: 'quiz', headerShown: false }}
+      />
+      <Stack.Screen
+          name="test3"
+          component={Map}
+          options={{ title: 'Geolocation' }}
+        />
+      
       <Stack.Screen
           name="Personalassistant"
           component={Personalassistant}
@@ -56,11 +63,7 @@ export default function App() {
           component={Login}
           options={{ title: 'Login', headerShown: false }}
       />
-      <Stack.Screen
-          name="quiz"
-          component={Quiz}
-          options={{ title: 'Quiz', headerShown: false }}
-      />
+      
       <Stack.Screen
           name="caregiver"
           component={CaregiverTabs}
