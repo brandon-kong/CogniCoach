@@ -21,7 +21,7 @@ import Patient from './screens/dashboard/patient/index';
 import Game from './screens/game/index';
 import Family from './screens/family/index';
 
-import Personalassistant from './screens/Personalassistant';
+import Personalassistant from './screens/personalassistant';
 import Faceai from './screens/Faceai'
 
 const Tab = createBottomTabNavigator();
@@ -31,7 +31,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
           name="home"
           component={Home}
           options={{ title: 'Home', headerShown: false }}
@@ -55,13 +55,13 @@ export default function App() {
           name="login"
           component={Login}
           options={{ title: 'Login', headerShown: false }}
-      />
+      /> */}
       <Stack.Screen
           name="quiz"
           component={Quiz}
           options={{ title: 'Quiz', headerShown: false }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
           name="caregiver"
           component={CaregiverTabs}
           options={{ title: 'Caregiver', headerShown: false }}
@@ -75,7 +75,7 @@ export default function App() {
           name="game-screen"
           component={GameScreen}
           options={{ title: 'Game', headerShown: false }}
-      />
+      /> */}
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>

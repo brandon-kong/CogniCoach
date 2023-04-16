@@ -36,23 +36,25 @@ export default function Quiz({navigation}){
     return (
 
         <View style={styles.container}>
-        <Controller
+        <Text style={styles.qaBox}>When is your typical wake-up time?</Text>
+        <Controller style={styles.qaBox}
             control={control}
             rules={{
             required: true,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-                placeholder="First name"
+                placeholder="Type Your Answer Here"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
             />
             )}
-            name="firstName"
+            name="wakeTime"
         />
-        {errors.firstName && <Text>This is required.</Text>}
+        {errors.wakeTime && <Text>This is required.</Text>}
 
+        <Text style={styles.qaBox}>When is your typical bed time?</Text>
         <Controller
             control={control}
             rules={{
@@ -60,16 +62,101 @@ export default function Quiz({navigation}){
             }}
             render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-                placeholder="Last name"
+                placeholder="Type Your Answer Here"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
             />
             )}
-            name="lastName"
+            name="bedTime"
         />
 
-        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+        <Text style={styles.qaBox}>When is your breakfast?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="breakfast"
+        />
+
+        <Text style={styles.qaBox}>When is your lunch time?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="lunch"
+        />
+
+        <Text style={styles.qaBox}>When is your dinner?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="dinner"
+        />
+
+        <Text style={styles.qaBox}>What medication(s) do you take?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="medication"
+        />
+
+        <Text style={styles.qaBox}>What time do you exercise? Skip if N/A.</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="exercise"
+        />
+
+        <Button title="Submit" onPress={handleSubmit(onSubmit)} style={styles.qaBox} />
         </View>
         // <View style={styles.container}>
         //     <Text>Quiz</Text>
@@ -120,7 +207,9 @@ const styles = StyleSheet.create({
         // padding: 10,
     },
     qaBox:{
-        padding:15,
+        // padding:20,
+        paddingTop:45,
+        fontWeight: 'bold',
     }
 })
 
