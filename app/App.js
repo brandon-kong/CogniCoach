@@ -7,7 +7,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/home/index';
 import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
-import Geolocation from './screens/geolocation/index';
+import Map from './screens/geolocation/index';
+
 import Personalassistant from './screens/Personalassistant';
 import Faceai from './screens/Faceai'
 

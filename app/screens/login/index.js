@@ -9,6 +9,12 @@ export default function Login ( { navigation } ) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const handleLogin = () => {
+        fetch('http://localhost:8000/api/users/login', {
+            method: 'POST',
+        })
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.input_container}>
