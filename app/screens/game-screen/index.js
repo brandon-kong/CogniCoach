@@ -10,23 +10,84 @@ export default function GameScreen () {
 
     const [score, setScore] = useState(0)
     const [attempts, setAttempts] = useState(0)
+    const [time, setTime] = useState(0)
     const [gameStarted, setGameStarted] = useState(false)
+    
+    var x = 1;
 
-    const cardsInMemory = []
+    var cardsInMemory = []
+    var cardsSelected = []
 
-    function flipCard() {
-        if (cardsInMemory.length < 2) {
-            cardsInMemory.push(this)
+    function initCards () {
+        while (cardsInMemory.length < 8) {
+            const randomNum = Math.floor(Math.random() * 8) + 1
+            if (!cardsInMemory.includes(randomNum)) {
+                cardsInMemory.push(randomNum)
+            }
         }
-        if (cardsInMemory.length === 2) {
+
+        // duplicate cards
+        cardsInMemory.push(...cardsInMemory)
+
+        // shuffle cards
+        for (let i = cardsInMemory.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * i)
+            const temp = cardsInMemory[i]
+            cardsInMemory[i] = cardsInMemory[j]
+            cardsInMemory[j] = temp
+        }
+
+        // create cards
+    }
+
+    function startGame () {
+        setGameStarted(true)
+        // set timer
+
+        // start timer
+        while (gameStarted === true) {
+            setTimeout(() => {
+                setTime(time + 1)
+            }, 1000)
+        }
+
+        
+    }
+
+    function cardClicked (card) {
+        if (card.state.canFlip === false) return
+       
+        if (cardsSelected.length < 2) {
+            card.showCard()
+            cardsSelected.push(card)
+        }
+        if (cardsSelected.length === 2) {
             // check if cards match
-            console.log('cards match')
+            if (cardsSelected[0].state.value === cardsSelected[1].state.value) {
+                // cards match
+                console.log('is a match')
+
+                cardsSelected[1].showCard()
+                cardsSelected[0].state.canFlip = false
+                cardsSelected[1].state.canFlip = false
+                cardsSelected = []
+
+                setScore(score + 1)
+            } else {
+                // not a match
+                
+                console.log('cards do not match')
+                cardsSelected[0].hideCard()
+                cardsSelected[1].hideCard()
+                cardsSelected = []
+            }
         }
     }
 
     const cardDict = {}
 
     const navigator = useNavigation()
+    initCards()
 
     return (
         <View style={styles.container}>
@@ -34,14 +95,14 @@ export default function GameScreen () {
                 <View style={styles.game_instruction_frame}>
                     <Text style={styles.instructions_title}>Game Instructions</Text>
                     <Text style={styles.instructions_desc}>You will try to select two cards with the same symbol. </Text>
-                    <CustomButton text='Start Game' onPress={() => setGameStarted(true)} />
+                    <CustomButton text='Start Game' onPress={() => startGame()} />
                 </View>
             </View>
             }
             <View style={styles.point_view}>
                 <View style={styles.top_info}>
                     <Text style={styles.score_title}>Score: {score}</Text>
-                    <Text>Time Elapsed: 10s</Text>
+                    <Text>Time Elapsed: {time}s</Text>
                 </View>
                 <View style={styles.top_info}>
                     <Text>Attempts: {attempts}</Text>
@@ -49,31 +110,32 @@ export default function GameScreen () {
             </View>
             <View style={styles.game_view}>
                 <View style={styles.game_frame}>
+                   
                     <Row>
-                        <Card style={styles['1col']} front='' back='2' />
-                        <Card style={styles['2col']} front='' back='2' />
-                        <Card style={styles['3col']} front='' back='2' />
-                        <Card style={styles['4col']} front='' back='2' />
+                        <Card style={styles['1col']} front='' back='1' onPress={cardClicked} />
+                        <Card style={styles['2col']} front='' back='8' onPress={cardClicked} />
+                        <Card style={styles['3col']} front='' back='4' onPress={cardClicked} />
+                        <Card style={styles['4col']} front='' back='5' onPress={cardClicked} />
                         
                     </Row>
                     <Row>
-                        <Card style={styles['1col']} front='' back='2' />
-                        <Card style={styles['2col']} front='' back='2' />
-                        <Card style={styles['3col']} front='' back='2' />
-                        <Card style={styles['4col']} front='' back='2' />
+                        <Card style={styles['1col']} front='' back='7' onPress={cardClicked} />
+                        <Card style={styles['2col']} front='' back='2' onPress={cardClicked} />
+                        <Card style={styles['3col']} front='' back='4' onPress={cardClicked} />
+                        <Card style={styles['4col']} front='' back='3' onPress={cardClicked} />
                     </Row>
                     <Row>
-                        <Card style={styles['1col']} front='' back='2' />
-                        <Card style={styles['2col']} front='' back='2' />
-                        <Card style={styles['3col']} front='' back='2' />
-                        <Card style={styles['4col']} front='' back='2' />
+                        <Card style={styles['1col']} front='' back='1' onPress={cardClicked} />
+                        <Card style={styles['2col']} front='' back='5' onPress={cardClicked} />
+                        <Card style={styles['3col']} front='' back='7' onPress={cardClicked} />
+                        <Card style={styles['4col']} front='' back='6' onPress={cardClicked} />
                     </Row>
                     <Row>
-                        <Card style={styles['1col']} front='' back='2' />
-                        <Card style={styles['2col']} front='' back='2' />
-                        <Card style={styles['3col']} front='' back='2' />
-                        <Card style={styles['4col']} front='' back='2' />
-                    </Row>
+                        <Card style={styles['1col']} front='' back='3' onPress={cardClicked} />
+                        <Card style={styles['2col']} front='' back='8' onPress={cardClicked} />
+                        <Card style={styles['3col']} front='' back='2' onPress={cardClicked} />
+                        <Card style={styles['4col']} front='' back='6' onPress={cardClicked} />
+                </Row>
                 </View>
             </View>
             <CustomButton text="Quit game" onPress={() => navigator.navigate('patient')} />

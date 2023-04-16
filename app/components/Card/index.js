@@ -14,6 +14,8 @@ export default class animatedbasic extends Component {
         this.state = {
             bounceValue: new Animated.Value(0),
             canFlip: true,
+            turned: false,
+            value: props.back
         };
     }
   componentWillMount() {
@@ -41,14 +43,16 @@ export default class animatedbasic extends Component {
   }
 
   flipCard() {
+    if (this.props.onPress !== undefined) this.props.onPress(this)
     if (!this.state.canFlip) return;
-    if (this.value >= 90) {
+    /*if (this.value >= 90) {
       Animated.spring(this.animatedValue,{
         toValue: 0,
         friction: 8,
         tension: 10,
         useNativeDriver: true
       }).start();
+      this.state.turned = false
     } else {
       Animated.spring(this.animatedValue,{
         toValue: 180,
@@ -56,8 +60,37 @@ export default class animatedbasic extends Component {
         tension: 10,
         useNativeDriver: true
       }).start();
-    }
+      this.state.turned = true
+    }*/
 
+  }
+
+  showCard () {
+    if (this.state.canFlip === false) return;
+    this.setState({canFlip: false})
+    setTimeout(() => {
+      Animated.spring(this.animatedValue,{
+        toValue: 180,
+        friction: 8,
+        tension: 10,
+        useNativeDriver: true
+      }).start();
+      this.setState({canFlip: true})
+    }, 0)
+  }
+
+  hideCard () {
+    if (this.state.canFlip === false) return;
+    this.setState({canFlip: false})
+    setTimeout(() => {
+      Animated.spring(this.animatedValue,{
+        toValue: 0,
+        friction: 8,
+        tension: 10,
+        useNativeDriver: true
+      }).start();
+      this.setState({canFlip: true})
+    }, 1000)
   }
 
   render() {
