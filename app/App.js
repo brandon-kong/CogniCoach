@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/home/index';
 import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
-
+import Geolocation from './screens/geolocation/index';
 import Personalassistant from './screens/Personalassistant';
 import Faceai from './screens/Faceai'
 
@@ -17,6 +17,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen
+          name="test3"
+          component={Geolocation}
+          options={{ title: 'Geolocation' }}
+        />
       <Stack.Screen
           name="test2"
           component={Faceai}
