@@ -13,6 +13,8 @@ import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 import Map from './screens/geolocation/index';
 import GameScreen from './screens/game-screen';
+import CaretakerRegister from './screens/CaretakerRegister';
+import PatientRegister from './screens/PatientRegister';
 
 // Dashboard screen
 import Caregiver from './screens/dashboard/caregiver/index';
@@ -78,6 +80,16 @@ export default function App() {
           name="game-screen"
           component={GameScreen}
           options={{ title: 'Game', headerShown: false }}
+      />
+      <Stack.Screen
+          name="caretaker-register"
+          component={CaretakerRegister}
+          options={{ title: 'Register', headerShown: false }}
+      />
+      <Stack.Screen
+          name="patient-register"
+          component={PatientRegister}
+          options={{ title: 'Register', headerShown: false }}
       />
       </Stack.Navigator>
       <StatusBar style="auto" />
