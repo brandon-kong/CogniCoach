@@ -9,6 +9,8 @@ import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 // import PersonalAssistant from './screens/Personalassistant';
 import Map from './screens/geolocation/index';
+// import PersonalAssistant from './screens/Personalassistant';
+import Map from './screens/geolocation/index';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,9 +29,11 @@ export default function App() {
           options={{ title: 'Login', headerShown: false }}
       />
       {/* <Stack.Screen
+      {/* <Stack.Screen
           name="Calendar"
           component={PersonalAssistant}
           options={{ title: 'Calendar' }}
+      /> */}
       /> */}
       <Stack.Screen
           name="quiz"
