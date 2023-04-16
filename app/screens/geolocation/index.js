@@ -12,11 +12,16 @@ export default function Map({ navigation }) {
   };
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} initialRegion={location} />
-      <Marker
+      <MapView style={styles.map} initialRegion={location}>
+        <Marker
+        coordinate={{ latitude: 42.05837, longitude: -87.6743 }}
+        image={require("./grandpa.png")} //uses relative file path. 
+      /></MapView>
+       <Marker
         coordinate={{ latitude: 42.05837, longitude: -87.6743 }}
         image={require("./grandpa.png")} //uses relative file path. 
       />
+      
     </View>
   );
 }
