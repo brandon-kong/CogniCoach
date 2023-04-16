@@ -17,24 +17,42 @@ export default function Personalassistant () {
         const items = {}
 
         setTimeout(() => {
-              for (let i = -15; i < 5; i++) 
+              for (let i = -15; i < 65; i++) 
               {
                 const time = day.timestamp + i * 24 * 60 * 60 * 1000;
                 const strTime = timeToString(time);
+
+                
                 if (!items[strTime]) {
                   items[strTime] = [];
                   
-                  const numItems = Math.floor(Math.random() * 3 + 1);
+                  const numItems = 1;
+                  //Math.floor(Math.random() * 3 + 1);
+                  
                   for (let j = 0; j < numItems; j++) {
-                    items[strTime].push({
-                      name: 'Item for ' + strTime + ' #' + j,
-                      height: Math.max(50, Math.floor(Math.random() * 150)),
-                      day: strTime
-                    });
+                    const nameTimeDict = {
+                        Breakfast: '9:00 am',
+                        Lunch: '12:00 pm',
+                        Dinner: '6:00 pm',
+                        Aricept: '10:00 am',
+                        Memantine: '1:00 pm',
+                        Yoga: '3:00 pm'
+                      };
+                      const names = Object.keys(nameTimeDict);
+                      const randomName = names[Math.floor(Math.random() * names.length)];
+          
+                      // Use the randomName to get the corresponding time from the dictionary
+                      const randomTime = nameTimeDict[randomName];
+          
+                      items[strTime].push({
+                        name: `Take ${randomName} Today at ${randomTime}`,
+                        height: Math.max(50, Math.floor(Math.random() * 150)),
+                        day: strTime
+                      });
                   }
                 }
-              }
-              
+             }
+                
               const newItems = {};
               Object.keys(items).forEach(key => {
                 newItems[key] = items[key];
@@ -46,6 +64,7 @@ export default function Personalassistant () {
     }
 
     const renderItem = (item) => {
+
         return (<TouchableOpacity style={{mariginRight: 10, marginTop: 17}}>
         <Card>
             <Card.Content>
@@ -74,7 +93,7 @@ export default function Personalassistant () {
             agendaTodayColor: 'black',
             agendaKnobColor: 'black',
             selectedDayBackgroundColor: 'black',
-            dayTextColor: 'black',
+
             dotColor: 'gray'
         }}
         renderItem= {renderItem}
@@ -90,4 +109,3 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     }
-})

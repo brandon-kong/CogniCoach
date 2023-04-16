@@ -7,10 +7,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/home/index';
 import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
-// import PersonalAssistant from './screens/Personalassistant';
-import Map from './screens/geolocation/index';
-// import PersonalAssistant from './screens/Personalassistant';
-import Map from './screens/geolocation/index';
+
+import Personalassistant from './screens/personalassistant';
+import Faceai from './screens/Faceai'
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +18,16 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
+          name="Personalassistant"
+          component={Personalassistant}
+          options={{ title: 'Personal Assistant' }}
+        />
+      <Stack.Screen
+          name="test2"
+          component={Faceai}
+          options={{ title: 'Face A.I.' }}
+        />
+        <Stack.Screen
           name="home"
           component={Home}
           options={{ title: 'Home', headerShown: false }}
