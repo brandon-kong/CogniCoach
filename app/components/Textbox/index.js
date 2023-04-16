@@ -1,12 +1,14 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 
-export default function Textbox ( {onChange, text, placeholder} ) {
+export default function Textbox ( {onChange, text, placeholder, secureTextEntry} ) {
     return (
         <View style={styles.container}>
             <TextInput
                 style={styles.textbox}
                 placeholder={placeholder || 'Enter your email'}
                 placeholderTextColor='#444'
+                secureTextEntry={secureTextEntry || false}
+                onChangeText={onChange}
             />
         </View>
     );
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: 'black',
         borderRadius: 10,
 
