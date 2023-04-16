@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Agenda } from 'react-native-calendars';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Card } from 'react-native-paper'; 
 
-
-export default function personalassistant () {
+export default function Personalassistant () {
     const timeToString = (time) => {
         const date = new Date(time);
         return date.toISOString().split('T')[0];
       }
     
     const [items, setItems] = useState({});
+
     loadItems = (day) => {
-        loadItems = (day) => {
-            const items = this.state.items || {};
-        
-            setTimeout(() => {
-              for (let i = -15; i < 85; i++) {
+        //const items = this.state.items || {};
+        const items = {}
+
+        setTimeout(() => {
+              for (let i = -15; i < 65; i++) 
+              {
                 const time = day.timestamp + i * 24 * 60 * 60 * 1000;
                 const strTime = timeToString(time);
                 if (!items[strTime]) {
@@ -38,7 +41,25 @@ export default function personalassistant () {
               });
               setItems(newItems);
             }, 1000);
-          }
+
+          
+    }
+
+    const renderItem = (item) => {
+        return (<TouchableOpacity style={{mariginRight: 10, marginTop: 17}}>
+        <Card>
+            <Card.Content>
+                <View style = {{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}>
+                    <Text>{item.name}</Text>
+                    <></>
+                </View>
+            </Card.Content>
+        </Card>
+        </TouchableOpacity>);
     }
 
     return (
@@ -47,6 +68,15 @@ export default function personalassistant () {
             items={items}
             loadItemsForMonth={loadItems}
             selected={'2023-04-15'}
+            theme={{
+            agendaDayTextColor: 'black',
+            agendaDayNumColor: 'black',
+            agendaTodayColor: 'black',
+            agendaKnobColor: 'black',
+            selectedDayBackgroundColor: 'black',
+            dotColor: 'gray'
+        }}
+        renderItem= {renderItem}
         />
         </View>
     );
