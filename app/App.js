@@ -8,7 +8,7 @@ import Home from './screens/home/index';
 import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 
-import Personalassistant from './screens/personalassistant';
+import Personalassistant from './screens/Personalassistant';
 import Faceai from './screens/Faceai'
 
 const Stack = createNativeStackNavigator();
@@ -17,16 +17,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
-          name="Personalassistant"
-          component={Personalassistant}
-          options={{ title: 'Personal Assistant' }}
-        />
-      <Stack.Screen
-          name="test2"
-          component={Faceai}
-          options={{ title: 'Face A.I.' }}
-        />
         <Stack.Screen
           name="home"
           component={Home}
@@ -37,13 +27,6 @@ export default function App() {
           component={Login}
           options={{ title: 'Login', headerShown: false }}
       />
-      {/* <Stack.Screen
-      {/* <Stack.Screen
-          name="Calendar"
-          component={PersonalAssistant}
-          options={{ title: 'Calendar' }}
-      /> */}
-      /> */}
       <Stack.Screen
           name="quiz"
           component={Quiz}

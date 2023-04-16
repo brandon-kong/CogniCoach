@@ -17,7 +17,7 @@ export default function Personalassistant () {
         const items = {}
 
         setTimeout(() => {
-              for (let i = -15; i < 65; i++) 
+              for (let i = -15; i < 5; i++) 
               {
                 const time = day.timestamp + i * 24 * 60 * 60 * 1000;
                 const strTime = timeToString(time);
@@ -108,4 +108,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    }
+  }})
