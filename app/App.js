@@ -9,7 +9,7 @@ import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 import Geolocation from './screens/geolocation/index';
 import Personalassistant from './screens/Personalassistant';
-import Faceai from './screens/Faceai'
+import Faceai from './screens/Faceai';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +17,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen
+          name="quiz"
+          component={Quiz}
+          options={{ title: 'quiz', headerShown: false }}
+      />
       <Stack.Screen
           name="test3"
           component={Geolocation}
@@ -42,11 +47,7 @@ export default function App() {
           component={Login}
           options={{ title: 'Login', headerShown: false }}
       />
-      <Stack.Screen
-          name="quiz"
-          component={Quiz}
-          options={{ title: 'quiz', headerShown: false }}
-      />
+      
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
