@@ -6,7 +6,7 @@ export default function Button( {onPress, text} ) {
     <View style={styles.container}>
         <Pressable 
         title="Click Me"
-        onPress={() => onPress && onPress || console.log('Button pressed')}
+        onPress={onPress && onPress || console.log('Button pressed')}
         style={styles.button}
     >
         <Text style={styles.btn_text}>{text || 'Click me'}</Text>
