@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
+import Home from './screens/home/index';
+import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 import PersonalAssistant from './screens/Personalassistant';
 
@@ -14,16 +16,20 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
+          name="login"
+          component={Login}
+          options={{ title: 'Login', headerShown: false }}
+      />
+      <Stack.Screen
           name="Calendar"
           component={PersonalAssistant}
           options={{ title: 'Calendar' }}
-        />
-        <Stack.Screen
-          name="login"
-          component={Login}
-          options={{ title: 'Login' }}
-        />
-
+      />
+      <Stack.Screen
+          name="quiz"
+          component={Quiz}
+          options={{ title: 'quiz', headerShown: false }}
+      />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
