@@ -14,7 +14,8 @@ export default function Game ( { navigation } ) {
                 <Text style={styles.high_score_points}>500</Text>
             </View>
             
-            <CustomButton text="Play" />
+            <CustomButton text="Play" onPress={() => navigation.navigate('game-screen')} />
+            <Text style={styles.game_info}>Strengthen your cognitive thinking every day by playing a short memory game</Text>
             <Text style={styles.disclaimer}>Your scores are shared with each of your caregivers to help assess your progress. <Text style={styles.link}>Learn more</Text></Text>
             <Image style={styles.main_img} source={require('../../assets/game-test.png')} />
         </View>
@@ -24,7 +25,7 @@ export default function Game ( { navigation } ) {
 const styles = StyleSheet.create({
     container: {
         padding: 15,
-        paddingTop: 40,
+        paddingTop: 45,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -77,6 +78,14 @@ const styles = StyleSheet.create({
         width: '100%',
         textAlign: 'center',
         marginVertical: 20,
+        marginTop: 10,
+    },
+
+    game_info: {
+        fontSize: 15,
+        width: '100%',
+        textAlign: 'center',
+        marginVertical: 10,
     },
 
     link: {
@@ -85,7 +94,7 @@ const styles = StyleSheet.create({
 
     main_img: {
         width: '100%',
-        height: '40%',
+        height: '30%',
         resizeMode: 'contain',
         borderRadius: 30,
     }

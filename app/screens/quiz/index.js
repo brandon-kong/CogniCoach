@@ -1,58 +1,41 @@
 import React, { useState, Component } from 'react';
-import { Button, View, TextInput, TouchableOpacity, Text , StyleSheet, } from 'react-native';
-import {useForm, Controller} from "react-hook-form"
+import { Button, View, TextInput, TouchableOpacity, Text, StyleSheet, ScrollView } from 'react-native';
+import { useForm, Controller } from "react-hook-form";
+//import {Textbox} from "../../components/Textbox/index";
 
 import Question from '../../components/Question';
 
 
-export default function Quiz({navigation}){
-    // const [text, setText] = useState('');
-
-    const { control, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: {
-          firstName: '',
-          lastName: ''
-        }
-      });
-    const onSubmit = data => console.log(data);
-
-    const [date, setDate] = useState(new Date())
-    const [open, setOpen] = useState(false)
-    const [combinedText, setCombinedText] = useState('');
-    const [dummy, setDummy] = useState("");
-
-    function combineText(text) {
-        // console.log("HELLO")
-        console.log(text);
-        // setCombinedText(combinedText + text);
-        //console.log(dummy)
+export default function Quiz({ navigation }) {
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: ''
     }
+  });
 
-    function submit(text){
-        console.log(text);
-        console.log("HELLO");
-    }
-
-    return (
+  const onSubmit = data => console.log(data);
 
         <View style={styles.container}>
-        <Controller
+        <Text style={styles.qaBox}>When is your typical wake-up time?</Text>
+        <Controller style={styles.qaBox}
             control={control}
             rules={{
             required: true,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-                placeholder="First name"
+                placeholder="Type Your Answer Here"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
             />
             )}
-            name="firstName"
+            name="wakeTime"
         />
-        {errors.firstName && <Text>This is required.</Text>}
+        {errors.wakeTime && <Text>This is required.</Text>}
 
+        <Text style={styles.qaBox}>When is your typical bed time?</Text>
         <Controller
             control={control}
             rules={{
@@ -60,43 +43,139 @@ export default function Quiz({navigation}){
             }}
             render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-                placeholder="Last name"
+                placeholder="Type Your Answer Here"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
             />
             )}
-            name="lastName"
+            name="bedTime"
         />
 
-        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+        <Text style={styles.qaBox}>When is your breakfast?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="breakfast"
+        />
+
+        <Text style={styles.qaBox}>When is your lunch time?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="lunch"
+        />
+
+        <Text style={styles.qaBox}>When is your dinner?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="dinner"
+        />
+
+        <Text style={styles.qaBox}>What medication(s) do you take?</Text>
+        <Controller
+            control={control}
+            rules={{
+            maxLength: 100,
+            }}
+            render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="medication"
+        />
+
+        <Text style={styles.qaBox}>What time do you exercise? Skip if N/A.</Text>
+  return (
+    <View style={styles.container}>
+      <View style={styles.inputContainer}>
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <Text
+              style={styles.input}
+              placeholder="First name"
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="firstName"
+        />
+        {errors.firstName && <Text style={styles.errorText}>This is required.</Text>}
+      </View>
+
+      <View style={styles.inputContainer}>
+        <Controller
+          control={control}
+          rules={{
+            maxLength: 100,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+                placeholder="Type Your Answer Here"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+            />
+            )}
+            name="exercise"
+              style={styles.input}
+              placeholder="Last name"
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="lastName"
+        />
+      </View>
+
+        <Button title="Submit" onPress={handleSubmit(onSubmit)} style={styles.qaBox} />
         </View>
         // <View style={styles.container}>
         //     <Text>Quiz</Text>
 
-            
-            
-        //     {/* <Question question="What is your typical wake-up time?" onQuestionChange={setText}></Question> */}
-        //     {/* <Question question="What is your typical wake-up time?" onTextChange={combineText} dummy={setDummy}></Question> */}
-        
-        //     {/* <Question question="When do you take your medication(s)?" onQuestionChange={setText}></Question> */}
-        //     {/* <Question question="When do you take your medication(s)?" onTextChange={combineText} dummy={setDummy}></Question> */}
-            
-        //     {/* onPress={submit(combinedText)}  */}
-        //     {/* <TouchableOpacity>
-        //         <Text>Submit</Text>
-        //     </TouchableOpacity> */}
-
-        //     <View>
-        //         <Button title="Submit" onPress={submit(dummy)}></Button>
-        //     </View>
-
-
-        // </View>
-        
-        
-        
-    );
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -120,7 +199,9 @@ const styles = StyleSheet.create({
         // padding: 10,
     },
     qaBox:{
-        padding:15,
+        // padding:20,
+        paddingTop:45,
+        fontWeight: 'bold',
     }
 })
 
@@ -152,3 +233,24 @@ const styles = StyleSheet.create({
 //       borderRadius: 4,
 //     },
 //   });
+  container: {
+    flex: 1,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputContainer: {
+    width: '100%',
+    marginBottom: 16,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 4,
+    padding: 8,
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 4,
+  },
+});
