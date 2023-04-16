@@ -7,9 +7,9 @@ export default function Home ( { navigation } ) {
             <Image style={styles.main_img} source={require('../../assets/landing-img.png')} />
             <View style={styles.bottom_container}>
                 <Text style={styles.home_title} >Are you a</Text>
-                <CustomButton text='Caregiver' />
+                <CustomButton text='Caregiver' onPress={() => {navigation.navigate('caretaker-register')}} />
                 <Text style={styles.home_text}>or</Text>
-                <CustomButton text='Patient' />
+                <CustomButton text='Patient'  onPress={() => {navigation.navigate('patient-register')}} />
                 <Button color="#000" title="Login instead" onPress={() => {navigation.navigate('login')}}></Button>
             </View>
            

@@ -13,6 +13,8 @@ import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 import Map from './screens/geolocation/index';
 import GameScreen from './screens/game-screen';
+import CaretakerRegister from './screens/CaretakerRegister';
+import PatientRegister from './screens/PatientRegister';
 
 // Dashboard screen
 import Caregiver from './screens/dashboard/caregiver/index';
@@ -21,8 +23,9 @@ import Patient from './screens/dashboard/patient/index';
 import Game from './screens/game/index';
 import Family from './screens/family/index';
 
-import Personalassistant from './screens/personalassistant';
-import Faceai from './screens/Faceai'
+import Personalassistant from './screens/Personalassistant';
+import Faceai from './screens/Faceai';
+import Dashboardcaregiver from './screens/Caregiverdashboard/Dashboardcaregiver';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -40,12 +43,27 @@ export default function App() {
           name="geo"
           component={Map}
           options={{ title: 'Geolocation' }}
+      <Stack.Screen
+          name="Caregiver Dashboard"
+          component={ Dashboardcaregiver }
+          options={{ title: 'Caregiver Dashboard:' }}
         />
       <Stack.Screen
           name="test2"
           component={Faceai}
           options={{ title: 'Face A.I.' }}
         />
+      <Stack.Screen
+          name="quiz"
+          component={Quiz}
+          options={{ title: 'quiz', headerShown: false }}
+      />
+      <Stack.Screen
+          name="test3"
+          component={Map}
+          options={{ title: 'Geolocation' }}
+        />
+      
       <Stack.Screen
           name="Personalassistant"
           component={Personalassistant}
@@ -62,6 +80,9 @@ export default function App() {
           options={{ title: 'Quiz', headerShown: false }}
       />
       {/* <Stack.Screen
+      />
+      
+      <Stack.Screen
           name="caregiver"
           component={CaregiverTabs}
           options={{ title: 'Caregiver', headerShown: false }}
@@ -76,6 +97,17 @@ export default function App() {
           component={GameScreen}
           options={{ title: 'Game', headerShown: false }}
       /> */}
+      />
+      <Stack.Screen
+          name="caretaker-register"
+          component={CaretakerRegister}
+          options={{ title: 'Register', headerShown: false }}
+      />
+      <Stack.Screen
+          name="patient-register"
+          component={PatientRegister}
+          options={{ title: 'Register', headerShown: false }}
+      />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
