@@ -2,7 +2,7 @@ import CustomButton from '../../components/Button';
 import Textbox from '../../components/Textbox';
 import { Text, View, StyleSheet, Button } from 'react-native'
 
-export default function CaretakerRegister ( { navigation } ) {
+export default function PatientRegister ( { navigation } ) {
     return (
         <View style={styles.container}>
             <Text style={styles.register_title} >Register as a Patient</Text>

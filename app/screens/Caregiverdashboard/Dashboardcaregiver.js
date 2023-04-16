@@ -16,6 +16,7 @@ export default function Dashboardcaregiver({navigation}) {
         text="Patient Data"
         onPress={() => {
           // Add logic for navigating to patient data screen
+          navigation.navigate('data-viz')
         }}
       />
       <Button

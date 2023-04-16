@@ -10,7 +10,7 @@ export default function CaretakerRegister ( { navigation } ) {
             <Textbox label="Email" placeholder="Email address" />
             <Textbox label="Password" placeholder="Password" secureTextEntry={true} />
             <Textbox label="Confirm Password" placeholder="Confirm password" secureTextEntry={true} />
-            <CustomButton text="Register" onPress={() => navigation.navigate('patient')} />
+            <CustomButton text="Register" onPress={() => navigation.navigate('caregiver-dashboard')} />
             <Button title="Go back" color="#000" onPress={() => navigation.navigate('home')} ></Button>
         </View>
     )

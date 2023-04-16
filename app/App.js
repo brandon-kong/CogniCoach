@@ -23,9 +23,10 @@ import Patient from './screens/dashboard/patient/index';
 import Game from './screens/game/index';
 import Family from './screens/family/index';
 
-import Personalassistant from './screens/personalassistant';
+import Personalassistant from './screens/Personalassistant';
 import Faceai from './screens/Faceai';
 import Dashboardcaregiver from './screens/Caregiverdashboard/Dashboardcaregiver';
+import DataViz from './screens/data_viz';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -46,9 +47,9 @@ export default function App() {
           options={{ title: 'Geolocation' }}
          />
       <Stack.Screen
-          name="Caregiver Dashboard"
+          name="caregiver-dashboard"
           component={ Dashboardcaregiver }
-          options={{ title: 'Caregiver Dashboard:' }}
+          options={{ title: 'Caregiver Dashboard:',  headerShown: false }}
         />
       <Stack.Screen
           name="test2"
@@ -76,11 +77,6 @@ export default function App() {
           component={Login}
           options={{ title: 'Login', headerShown: false }}
       />
-      <Stack.Screen
-          name="quiz"
-          component={Quiz}
-          options={{ title: 'Quiz', headerShown: false }}
-        />
       
       <Stack.Screen
           name="caregiver"
@@ -97,6 +93,11 @@ export default function App() {
           name="game-screen"
           component={GameScreen}
           options={{ title: 'Game', headerShown: false }}
+      />
+      <Stack.Screen
+          name="data-viz"
+          component={DataViz}
+          options={{ title: 'DataViz', headerShown: true }}
       />
       <Stack.Screen
           name="caretaker-register"

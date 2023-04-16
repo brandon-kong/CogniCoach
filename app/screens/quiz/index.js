@@ -1,7 +1,8 @@
 import React, { useState, Component } from 'react';
-import { Button, View, TextInput, TouchableOpacity, Text , StyleSheet, } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text , StyleSheet, } from 'react-native';
 import {useForm, Controller} from "react-hook-form"
 
+import Button from '../../components/Button';
 import Question from '../../components/Question';
 
 
@@ -14,7 +15,9 @@ export default function Quiz({navigation}){
           lastName: ''
         }
       });
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        navigation.navigate('patient')
+    }
 
     const [date, setDate] = useState(new Date())
     const [open, setOpen] = useState(false)
@@ -156,7 +159,7 @@ export default function Quiz({navigation}){
             name="exercise"
         />
 
-        <Button title="Submit" onPress={handleSubmit(onSubmit)} style={styles.qaBox} />
+        <Button text="Submit" onPress={handleSubmit(onSubmit)} style={styles.qaBox} />
         </View>
 
     );
