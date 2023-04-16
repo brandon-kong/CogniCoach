@@ -11,6 +11,7 @@ import Map from './screens/geolocation/index';
 
 import Personalassistant from './screens/Personalassistant';
 import Faceai from './screens/Faceai';
+import Dashboardcaregiver from './screens/Dashboardcaregiver';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,20 +20,26 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
-          name="quiz"
-          component={Quiz}
-          options={{ title: 'quiz', headerShown: false }}
-      />
-      <Stack.Screen
-          name="test3"
-          component={Geolocation}
-          options={{ title: 'Geolocation' }}
+          name="Caregiver Dashboard"
+          component={ Dashboardcaregiver }
+          options={{ title: 'Caregiver Dashboard:' }}
         />
       <Stack.Screen
           name="test2"
           component={Faceai}
           options={{ title: 'Face A.I.' }}
         />
+      <Stack.Screen
+          name="quiz"
+          component={Quiz}
+          options={{ title: 'quiz', headerShown: false }}
+      />
+      <Stack.Screen
+          name="test3"
+          component={Map}
+          options={{ title: 'Geolocation' }}
+        />
+      
       <Stack.Screen
           name="Personalassistant"
           component={Personalassistant}
