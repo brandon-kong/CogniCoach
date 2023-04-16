@@ -18,6 +18,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen
+          name="test3"
+          component={Geolocation}
+          options={{ title: 'Geolocation' }}
+        />
+      <Stack.Screen
+          name="test2"
+          component={Faceai}
+          options={{ title: 'Face A.I.' }}
+        />
+      <Stack.Screen
+          name="Personalassistant"
+          component={Personalassistant}
+          options={{ title: 'Personal Assistant' }}
+        />
         <Stack.Screen
           name="home"
           component={Home}
