@@ -34,6 +34,15 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      {/* <Stack.Screen
+          name="home"
+          component={Home}
+          options={{ title: 'Home', headerShown: false }}
+        />
+      <Stack.Screen
+          name="geo"
+          component={Map}
+          options={{ title: 'Geolocation' }}
       <Stack.Screen
           name="Caregiver Dashboard"
           component={ Dashboardcaregiver }
@@ -64,6 +73,13 @@ export default function App() {
           name="login"
           component={Login}
           options={{ title: 'Login', headerShown: false }}
+      /> */}
+      <Stack.Screen
+          name="quiz"
+          component={Quiz}
+          options={{ title: 'Quiz', headerShown: false }}
+      />
+      {/* <Stack.Screen
       />
       
       <Stack.Screen
@@ -80,6 +96,7 @@ export default function App() {
           name="game-screen"
           component={GameScreen}
           options={{ title: 'Game', headerShown: false }}
+      /> */}
       />
       <Stack.Screen
           name="caretaker-register"
