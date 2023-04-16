@@ -19,17 +19,18 @@ class GradientBar extends React.PureComponent {
 
         return (
             <View>
-                {/* <XAxis 
+                <XAxis 
                     // style={{height:200, width:'8%'}}
-                    data={data}
+                    // data={["A", "B", "C", "D", "E", "F", "G"]}
+                    data={data.values}
                     contentInset={{ top: 20, bottom: 20 }}
                     svg={{
                         fill: 'grey',
                         fontSize: 10,
                     }}
                     numberOfTicks={5}
-                    // formatLabel={(value) => `${value}`}
-                /> */}
+                    formatLabel={(value) => `${value}`}
+                />
                 <BarChart
                     style={ { height: 200 } }
                     data={ data }

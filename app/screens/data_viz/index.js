@@ -25,7 +25,8 @@ export default function DataViz () {
 
             <Text style={styles.data_viz_text}>Average times behind on medication</Text>
             <GradientBar
-                data = {[ 50, 10, 40, 95, -4, -24, 85 ]}>
+                data = {[ 50, 10, 40, 95, -4, -24, 85]}
+                >
             </GradientBar>
 
             <Text style={styles.data_viz_text}>Steps per Day</Text>
