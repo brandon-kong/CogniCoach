@@ -1,18 +1,22 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
-import Button from '../../components/Button/index'
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
-export default function Login () {
+import CustomButton from '../../components/Button/index'
+
+import Textbox from '../../components/Textbox';
+
+export default function Login ( { navigation } ) {
     return (
         <View style={styles.container}>
-            <Image style={styles.main_img} source={require('../../assets/landing-img.png')} />
-            <View style={styles.bottom_container}>
-                <Text style={styles.home_title} >Are you a</Text>
-                <Button text='Caregiver' />
-                <Text style={styles.home_text}>or</Text>
-                <Button text='Patient' />
-                <Text style={styles.home_text}>Login instead</Text>
+            <View style={styles.input_container}>
+                <Text style={styles.input_label}>Email</Text>
+                <Textbox placeholder="Enter your email" />
             </View>
-           
+            <View style={styles.input_container}>
+                <Text style={styles.input_label}>Password</Text>
+                <Textbox placeholder="Enter your password" />
+            </View>
+            <CustomButton text='Login' />
+            <Button color='#000' title="Go back" onPress={() => navigation.navigate('home')} style={styles.go_back} />
         </View> 
 
     );
@@ -21,36 +25,29 @@ export default function Login () {
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
-        gap: 50,
+
+        backgroundColor: '#fff',
+        padding: 40,
+        gap: 30,
         height: '100%',
-        width: '100%',
         flexDirection: 'column',
 
-        flex: 1,
         backgroundColor: '#fff',
+        justifyContent: 'center',
+    },
+
+    input_container: {
+        width: '100%',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
-    main_img: {
+    input_label: {
         width: '100%',
-        height: '30%',
-        resizeMode: 'contain',
+        fontSize: 17,
+        textAlign: 'left',
+        marginBottom: 8,
+        fontWeight: 500,
     },
-
-    home_title: {
-        textAlign: 'center',
-        fontSize: 40,
-        fontWeight: 'bold',
-    },
-
-    bottom_container: {
-        display: 'flex',
-        gap: 20,
-    },
-
-    home_text: {
-        textAlign: 'center',
-        fontSize: 20,
-    }
 })

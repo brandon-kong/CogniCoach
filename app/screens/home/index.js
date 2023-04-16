@@ -1,28 +1,59 @@
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import CustomButton from '../../components/Button/index'
 
-import { Button, Text, View, StyleSheet } from "react-native";
-
-export default function Home({ navigation }) {
+export default function Home ( { navigation } ) {
     return (
         <View style={styles.container}>
-            <Text>Home Screen</Text>
-            <Button
-                title="Go to Login"
-                onPress={() => navigation.navigate("login")}
-            />
-            <Button
-            title="Go to Personal Assistant"
-            onPress={() => navigation.navigate("PersonalAssistant")}
-            />
-        </View>
+            <Image style={styles.main_img} source={require('../../assets/landing-img.png')} />
+            <View style={styles.bottom_container}>
+                <Text style={styles.home_title} >Are you a</Text>
+                <CustomButton text='Caregiver' />
+                <Text style={styles.home_text}>or</Text>
+                <CustomButton text='Patient' />
+                <Button color="#000" title="Login instead" onPress={() => {navigation.navigate('login')}}></Button>
+            </View>
+           
+        </View> 
+
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        padding: 40,
+        display: 'flex',
+        gap: 50,
         height: '100%',
+        width: '100%',
+        flexDirection: 'column',
+
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+
+    main_img: {
+        width: '100%',
+        height: '30%',
+        resizeMode: 'contain',
+    },
+
+    home_title: {
+        textAlign: 'center',
+        fontSize: 40,
+        fontWeight: 'bold',
+    },
+
+    bottom_container: {
+        display: 'flex',
+        gap: 20,
+        width: '100%',
+    },
+
+    home_text: {
+        textAlign: 'center',
+        fontSize: 20,
+        color: '#000000',
     }
 })
