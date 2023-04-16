@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Agenda } from 'react-native-calendars';
@@ -54,7 +53,6 @@ export default function Personalassistant () {
                 }
              }
                 
-
               const newItems = {};
               Object.keys(items).forEach(key => {
                 newItems[key] = items[key];
@@ -66,7 +64,7 @@ export default function Personalassistant () {
     }
 
     const renderItem = (item) => {
-        
+
         return (<TouchableOpacity style={{mariginRight: 10, marginTop: 17}}>
         <Card>
             <Card.Content>
@@ -95,6 +93,7 @@ export default function Personalassistant () {
             agendaTodayColor: 'black',
             agendaKnobColor: 'black',
             selectedDayBackgroundColor: 'black',
+
             dotColor: 'gray'
         }}
         renderItem= {renderItem}
@@ -110,4 +109,3 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     }
-})

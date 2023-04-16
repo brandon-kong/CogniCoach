@@ -4,7 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
+import Home from './screens/home/index';
+import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
+
 import Personalassistant from './screens/personalassistant';
 import Faceai from './screens/Faceai'
 
@@ -25,10 +28,27 @@ export default function App() {
           options={{ title: 'Face A.I.' }}
         />
         <Stack.Screen
+          name="home"
+          component={Home}
+          options={{ title: 'Home', headerShown: false }}
+      />
+      <Stack.Screen
           name="login"
           component={Login}
-          options={{ title: 'Login' }}
-        />
+          options={{ title: 'Login', headerShown: false }}
+      />
+      {/* <Stack.Screen
+      {/* <Stack.Screen
+          name="Calendar"
+          component={PersonalAssistant}
+          options={{ title: 'Calendar' }}
+      /> */}
+      /> */}
+      <Stack.Screen
+          name="quiz"
+          component={Quiz}
+          options={{ title: 'quiz', headerShown: false }}
+      />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
