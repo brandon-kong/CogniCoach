@@ -7,7 +7,7 @@ import FamilyImage from './family.png';
 
 const Stack = createNativeStackNavigator();
 
-export default function Dashboardcaregiver() {
+export default function Dashboardcaregiver({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>  Welcome to Dashboard Caregiver!</Text>
@@ -21,7 +21,7 @@ export default function Dashboardcaregiver() {
       <Button
         text="Patient Geolocation"
         onPress={() => {
-          // Add logic for navigating to patient geolocation screen
+        navigation.navigate('test3'); 
         }}
       />
       {/* Add any other components or text here */}
