@@ -68,7 +68,7 @@ export default function Faceai() {
                 },
               ]}
             >
-              Carol
+              {face.faceID}
             </Text>
           </React.Fragment>
         ))}
