@@ -28,7 +28,7 @@ class GradientChart extends React.PureComponent {
                         fontSize: 10,
                     }}
                     numberOfTicks={5}
-                    formatLabel={(value) => `${value} min`}
+                    formatLabel={(value) => `${value}`}
                 />
                 <AreaChart
                     style={{ height: 200 , width: 310}}
