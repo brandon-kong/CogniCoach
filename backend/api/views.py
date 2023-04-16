@@ -26,9 +26,10 @@ class UserCreateView(CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
-class LoginView(RetrieveAPIView):
-	permission_classes = [IsAuthenticated]
-	serializer_class = UserSerializer
 
-	def get_object(self):
-		return self.request.user
+class LoginView(RetrieveAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserSerializer
+        
+    def get_object(self):
+        return self.request.user
