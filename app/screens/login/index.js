@@ -10,6 +10,7 @@ export default function Login () {
                 <Button text='Caregiver' />
                 <Text style={styles.home_text}>or</Text>
                 <Button text='Patient' />
+                <Text style={styles.home_text}>Login instead</Text>
             </View>
            
         </View> 
