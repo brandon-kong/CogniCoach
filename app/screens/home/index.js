@@ -20,7 +20,7 @@ export default function Home ( { navigation } ) {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 40,
+        padding: 15,
         display: 'flex',
         gap: 50,
         height: '100%',

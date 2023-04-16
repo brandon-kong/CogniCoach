@@ -12,6 +12,7 @@ import Home from './screens/home/index';
 import Quiz from './screens/quiz/index';
 import Login from './screens/login/index';
 import Map from './screens/geolocation/index';
+import GameScreen from './screens/game-screen';
 
 // Dashboard screen
 import Caregiver from './screens/dashboard/caregiver/index';
@@ -70,6 +71,11 @@ export default function App() {
           component={PatientTabs}
           options={{ title: 'Patient', headerShown: false }}
       />
+      <Stack.Screen
+          name="game-screen"
+          component={GameScreen}
+          options={{ title: 'Game', headerShown: false }}
+      />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
@@ -94,7 +100,7 @@ function PatientTabs () {
           let iconName;
 
           color = focused ? '#f48' : '#000';
-          
+
           if (route.name === 'Game') {
             iconName = focused
               ? 'puzzle-check'
