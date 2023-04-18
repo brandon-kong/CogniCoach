@@ -3,6 +3,8 @@
 ### Video Demo
 https://youtu.be/8TIjSoRPRIY
 
+<img src="./app/assets/brand-logo.png" width="200" />
+
 ## Inspiration
 As the population ages, the impact of Alzheimer's and dementia is becoming increasingly prevalent. Managing memory impairments can be overwhelming for both patients and caregivers, leading to a need for innovative solutions. Inspired by the belief that technology can be a game-changer in memory care, our team has developed an AI-powered personal assistant that is specifically designed to support individuals with Alzheimer's and dementia. CogniCoach combines cutting-edge features to provide comprehensive support for patients and caregivers, while also offering valuable day-to-day insights to doctors and researchers.
 
